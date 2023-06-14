@@ -4,7 +4,8 @@
 include("php/connection.php");
 
 // Consulta ao banco de dados
-$sql = "SELECT id, nome, cor, id_marca FROM Veiculo";
+//$sql = "SELECT id, nome, cor, id_marca FROM Veiculo";
+$sql = "SELECT Veiculo.id AS id_veiculo, Veiculo.nome AS nome_veiculo, Veiculo.cor AS cor_veiculo, Marca.nome AS nome_marca FROM Veiculo JOIN Marca ON Veiculo.id_marca = Marca.id;";
 $result = $conection->query($sql);
 
 if (isset($_GET['status']) && isset($_GET['msg'])){
@@ -13,6 +14,8 @@ if (isset($_GET['status']) && isset($_GET['msg'])){
 } else if(isset($_GET['status']) && !isset($_GET['msg'])){
   $status = $_GET['status'];
 } else{}
+
+
 
 ?>
 
@@ -99,11 +102,11 @@ if (isset($_GET['status']) && isset($_GET['msg'])){
                             while ($row = $result->fetch_assoc()) {
                       ?>
                       <tr>
-                        <th scope="row"><?php echo $row["id"] ?></th>
-                        <td><?php echo $row["nome"] ?></td>
-                        <td><?php echo $row["cor"] ?></td>
-                        <td><?php echo $row["id_marca"] ?></td>
-                        <td><a href="php/delect_veiculo.php?id=<?php echo $row["id"] ?>"><button type="button" class="btn btn-danger">Excluir</button></a></td>
+                        <th scope="row"><?php echo $row["id_veiculo"] ?></th>
+                        <td><?php echo $row["nome_veiculo"] ?></td>
+                        <td><?php echo $row["cor_veiculo"] ?></td>
+                        <td><?php echo $row["nome_marca"] ?></td>
+                        <td><a href="php/delect_veiculo.php?id=<?php echo $row["id_veiculo"] ?>"><button type="button" class="btn btn-danger">Excluir</button></a></td>
                       </tr>
 
                       <?php

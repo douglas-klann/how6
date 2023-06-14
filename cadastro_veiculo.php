@@ -56,10 +56,10 @@ $result = $conection->query($sql);
         </div>
       </div>
     </nav>
+
     <div class="container text-center">
         <div class="row">
           <div class="col-sm-12 col-md-6">
-
             <?php
               if (isset($status)){
                 if ($status=="success") {
@@ -81,25 +81,23 @@ $result = $conection->query($sql);
                 }else {}
               } else{}
               ?>
-
             <h1>Cadastro de Veiculos</h1>
-            <form class="row mb-3" action="php/insert_veiculo.php" method="post">
-              <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Nome do Veiculo</label>
-                <div class="col-sm-10">
-                <input required maxlength="20" type="text" class="form-control" name="nome_veiculo">
+            <form action="php/insert_veiculo.php" method="post">
+                <div class="row mb-3">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Nome do Veiculo</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="20" type="text" class="form-control" name="nome_veiculo">
+                  </div>
                 </div>
-              </div>
-              <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Cor do Veiculo</label>
-                <div class="col-sm-10">
-                <input required maxlength="20" type="text" class="form-control" name="cor_veiculo">
+                <div class="row mb-3">
+                  <label for="inputPassword3" class="col-sm-2 col-form-label">Cor do Veiculo</label>
+                  <div class="col-sm-10">
+                    <input required maxlength="20" type="text" class="form-control" name="cor_veiculo">
+                  </div>
                 </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-sm-10">
-                    <label for="inputState" class="col-sm-2 col-form-label">Marca</label>
-                    <select name="id_marca" id="inputState" class="form-select">
+                <div class="row mb-3">
+                    <label for="id_marca" class="col-sm-2 col-form-label">Marca do Veiculo</label>
+                    <select name="id_marca" id="id_marca" class="form-select">
                         <option selected value="0"></option>
 
                         <?php
@@ -118,10 +116,9 @@ $result = $conection->query($sql);
                       ?>
                     </select>
                 </div>
-              </div>
                 <button type="submit" class="btn btn-primary" formmethod="post" formaction="php/insert_veiculo.php">Cadastrar Veiculo</button>
-            </form>
-            </div>
+              </form>
+          </div>
         </div>
     </div>
 
